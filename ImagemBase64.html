@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+
+    function teste(){
+
+        let arquivo = document.getElementById('Arquivo').files[0];
+        
+        let leitor = new FileReader(); //New é uma instancia de algo pré determinado, copiando algo para usar em outro lugar, FileReader instrução para ler arquivos externos
+        
+        leitor.onload = function(e){        //leitor vai ler um arquivo //e = um parametro fantasma, o arquivo que pegamos atraes do botão
+            
+            let imagemBase64 = e.target.result; //e do parametro vai ser convertido para Base64
+            document.getElementById('Imagem').src = imagemBase64;
+        }
+        
+        leitor.readAsDataURL(arquivo) //Peguei o arquivo atraves do input via parametro e coloquei na variavel  arquivo
+        
+        
+    }
+
+
+</script>
+<body>
+    <input type="file" name="" id="Arquivo">
+    <button onclick="teste()">Play</button>
+    <img src="" id="Imagem">
+</body>
+</html>
